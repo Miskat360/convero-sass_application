@@ -1,21 +1,50 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import React from "react";
+import CompanionCard from "@/components/CompanionCard";
+import CompanionsList from "@/components/CompanionsList";
+import CTA from "@/components/CTA";
+import { recentSessions } from "@/constants";
 
 const Page = () => {
   return (
-    <div className="w-full h-screen">
-      <h2>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia fugit
-        incidunt, alias ipsa accusamus ab consectetur sint aliquid maiores dolor
-        tempore esse! Voluptate deleniti alias iste ea incidunt quae maxime?
-      </h2>
-      <Button>Click me</Button>
-      <Link href={"sign-in"}>Sign in</Link>
-      <button className="bg-neutral-900 text-white text-sm py-2 px-4 rounded-sm">
-        Click me
-      </button>
-    </div>
+    <main>
+      <h1>Popular Companions</h1>
+      <section className="home-section">
+        <CompanionCard
+          id="123"
+          name="Neura the Brainy Explorer"
+          topic="Neural Network of the Brain"
+          subject="Science"
+          duration={45}
+          bookmarked={false}
+          color="#E5D0FF"
+        />
+        <CompanionCard
+          id="123"
+          name="Countsy the Number Wizard"
+          topic="Derivatives & Integrals"
+          subject="Maths"
+          duration={30}
+          bookmarked={false}
+          color="#FFDA6E"
+        />
+        <CompanionCard
+          id="123"
+          name="Verba the Vocabulary Builder"
+          topic="English Literature"
+          subject="Language"
+          duration={30}
+          bookmarked={true}
+          color="#BDE7FF"
+        />
+      </section>
+      <section className="home-section">
+        <CompanionsList
+          title="Recently completed sessions"
+          companions={recentSessions}
+          className="w-2/3 max-lg:w-full"
+        />
+        <CTA />
+      </section>
+    </main>
   );
 };
 
